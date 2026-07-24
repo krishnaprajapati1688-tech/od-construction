@@ -109,7 +109,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-            className="mx-3 mt-2 max-h-[80vh] overflow-y-auto rounded-2xl glass xl:hidden"
+            className="mx-3 mt-2 rounded-2xl glass xl:hidden"
           >
             <nav className="flex flex-col gap-1 p-4">
               {links.map((l) => (
