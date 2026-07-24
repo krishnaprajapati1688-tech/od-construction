@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-fraunces: 'Fraunces', Georgia, serif;
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+* {
+  scroll-behavior: auto;
+}
+
+html {
+  @apply antialiased;
+}
+
+body {
+  @apply bg-white text-midnight-900 dark:bg-midnight-950 dark:text-white transition-colors duration-500;
+  font-family: var(--font-inter);
+}
+
+::selection {
+  @apply bg-gold-400/40 text-midnight-950;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gold-600/60 rounded-full;
+}
+
+/* Visible keyboard focus */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #C9A24B;
+  outline-offset: 3px;
+}
+
+/* Reduced motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Signature: architectural "dimension line" divider ---------- */
+.dim-line {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #C9A24B;
+}
+.dim-line::before,
+.dim-line::after {
+  content: '';
+  height: 1px;
+  flex: 1;
+  background: linear-gradient(90deg, transparent, currentColor 20%, currentColor 80%, transparent);
+  position: relative;
+}
+.dim-line::before {
+  border-left: 1px solid currentColor;
+}
+.dim-line::after {
+  border-right: 1px solid currentColor;
+}
+.dim-tick {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Blueprint ambient grid texture */
+.blueprint-bg {
+  background-image:
+    linear-gradient(rgba(201, 162, 75, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201, 162, 75, 0.07) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+/* Corner brackets - technical drawing motif */
+.blueprint-corners {
+  position: relative;
+}
+.blueprint-corners::before,
+.blueprint-corners::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: #C9A24B;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+.blueprint-corners::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid;
+  border-left: 2px solid;
+}
+.blueprint-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+}
+.blueprint-corners:hover::before,
+.blueprint-corners:hover::after {
+  width: 26px;
+  height: 26px;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(120deg, #E4C878 0%, #C9A24B 45%, #8A6A29 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass-light {
+  background: rgba(10, 22, 40, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(10, 22, 40, 0.08);
+}
